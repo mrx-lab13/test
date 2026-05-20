@@ -1,205 +1,478 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   <meta name="color-scheme" content="light">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pay it Forward Jiu-Jitsu | お問い合わせ・無料体験</title>
+  <meta name="description" content="東京都新宿区信濃町にあるブラジリアン柔術道場。初心者・女性・キッズ・50代以上歓迎。無料体験随時受付中。信濃町駅徒歩30秒。">
+  <meta name="keywords" content="ブラジリアン柔術,柔術,信濃町,新宿,道場,初心者,女性,キッズ,体験,Pay it Forward">
+  <meta name="robots" content="index, follow">
+  <title>Pay it Forward JIU-JITSU｜東京・信濃町のブラジリアン柔術道場</title>
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pay it Forward JIU-JITSU｜東京・信濃町のブラジリアン柔術道場">
+  <meta property="og:description" content="東京都新宿区信濃町にあるブラジリアン柔術道場。初心者・女性・キッズ・50代以上歓迎。無料体験随時受付中。信濃町駅徒歩30秒。">
+  <meta property="og:url" content="https://mrx-lab13.github.io/test/index.html">
+  <meta property="og:image" content="https://mrx-lab13.github.io/test/logo.png">
+  <meta property="og:site_name" content="Pay it Forward JIU-JITSU">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pay it Forward JIU-JITSU｜東京・信濃町のブラジリアン柔術道場">
+  <meta name="twitter:description" content="東京都新宿区信濃町にあるブラジリアン柔術道場。初心者・女性・キッズ・50代以上歓迎。無料体験随時受付中。信濃町駅徒歩30秒。">
+  <meta name="twitter:image" content="https://mrx-lab13.github.io/test/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- 表示速度最適化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Pay it Forward JIU-JITSU",
+    "description": "東京都新宿区信濃町のブラジリアン柔術道場。初心者・女性・キッズ・50代以上歓迎。",
+    "url": "https://mrx-lab13.github.io/test/",
+    "telephone": "",
+    "email": "payitforwardjiujitsu@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "南元町19-2 信濃町外苑ビル201",
+      "addressLocality": "新宿区",
+      "addressRegion": "東京都",
+      "postalCode": "160-0012",
+      "addressCountry": "JP"
+    },
+    "openingHours": ["Mo-Fr 10:00-22:00", "Sa-Su 09:00-18:00"],
+    "sameAs": [
+      "https://www.instagram.com/payitforwardjiujitsu"
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="common.css">
   <style>
-    /* ===== カードセクション ===== */
-    .contact-cards-section {
-      padding: 56px 40px 0;
-      max-width: 960px;
-      margin: 0 auto;
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 540px;
+      background: #f0ede8;
+      overflow: hidden;
     }
 
-    .contact-grid {
+    .hero-img {
+      position: absolute;
+      right: 0; top: 0;
+      width: 54%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 60px 0 60px 48px;
+      max-width: 480px;
+    }
+
+    .hero-heading {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-sub-en {
+      font-family: 'Georgia', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--gray-text);
+      margin-bottom: 20px;
+    }
+
+
+    .hero-features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .hero-features li {
+      font-size: 13px;
+      color: #444;
+      padding: 9px 0;
+      border-bottom: 1px solid #d8d4ce;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .hero-features li:first-child { border-top: 1px solid #d8d4ce; }
+
+    .hero-features li::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--black);
+      flex-shrink: 0;
+    }
+
+    .hero-info {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      margin-bottom: 32px;
+    }
+
+    .hero-info-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
       gap: 20px;
     }
 
-    .contact-card {
-      border: 1px solid var(--gray-mid);
-      padding: 32px 20px;
-      text-align: center;
-    }
-
-    .contact-card.line-card {
-      background: #06c755;
-      border-color: #06c755;
+    .hero-badge {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--black);
       color: var(--white);
-    }
-
-    .contact-icon { display: flex; justify-content: center; margin-bottom: 14px; }
-    .contact-type { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .contact-desc { font-size: 12px; color: var(--gray-text); margin-bottom: 18px; line-height: 1.7; }
-    .contact-card.line-card .contact-desc { color: rgba(255,255,255,0.85); }
-
-    .contact-link {
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      border-bottom: 1px solid var(--black);
-      padding-bottom: 2px;
-      transition: opacity 0.2s;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
     }
 
-    .contact-link:hover { opacity: 0.6; }
-    .contact-card.line-card .contact-link { color: var(--white); border-bottom-color: var(--white); }
+    /* ===== FEATURES ===== */
+    .features {
+      padding: 56px 40px;
+      border-top: 1px solid var(--gray-mid);
+    }
 
-    /* ===== フォームセクション ===== */
-    .contact-page {
-      padding: 56px 40px 72px;
-      max-width: 680px;
+    .features-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 0.06em;
+    }
+
+    .features-list {
+      list-style: none;
+      max-width: 400px;
       margin: 0 auto;
     }
 
-    .contact-intro {
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      margin-top: -24px;
-      margin-bottom: 48px;
-      line-height: 2;
-    }
-
-    .form-group { margin-bottom: 22px; }
-
-    .form-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-bottom: 8px;
-    }
-
-    .required {
-      color: #c0392b;
-      font-size: 11px;
-      font-weight: 400;
-      margin-left: 4px;
-    }
-
-    .form-input,
-    .form-textarea {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid var(--gray-mid);
-      background: var(--white);
-      font-size: 14px;
-      font-family: var(--font-sans);
-      outline: none;
-      border-radius: 0;
-      appearance: none;
-      -webkit-appearance: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus { border-color: var(--black); }
-
-    .form-textarea { height: 140px; resize: vertical; }
-
-    /* プライバシーポリシー */
-    .privacy-box {
-      margin-top: 28px;
-      padding: 20px;
-      background: var(--gray-light);
-      font-size: 13px;
-      line-height: 2;
-      color: #555;
-      text-align: center;
-    }
-
-    .privacy-box a {
-      color: var(--black);
-      border-bottom: 1px solid var(--black);
-    }
-
-    .privacy-agree {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 14px;
-      font-size: 13px;
-      cursor: pointer;
-    }
-
-    .privacy-agree input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-      accent-color: var(--black);
-    }
-
-    .form-submit { margin-top: 28px; }
-
-    .form-submit button {
-      width: 100%;
-      background: var(--black);
-      color: var(--white);
-      border: none;
-      padding: 15px;
+    .features-list li {
       font-size: 15px;
       font-weight: 500;
-      font-family: var(--font-sans);
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      transition: opacity 0.2s;
+      letter-spacing: 0.04em;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gray-mid);
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .form-submit button:hover { opacity: 0.75; }
+    .features-list li::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--black);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
 
-    .form-note {
-      font-size: 12px;
-      color: var(--gray-text);
-      text-align: center;
-      margin-top: 12px;
+    .features-list li:first-child {
+      border-top: 1px solid var(--gray-mid);
     }
 
     /* ===== TABLET ===== */
     @media (max-width: 1024px) {
-      .contact-cards-section { padding: 48px 24px 0; }
-      .contact-page { padding: 48px 24px 56px; }
+      .hero-content { padding: 48px 0 48px 32px; }
+      .hero-heading { font-size: 44px; }
+      .features { padding: 48px 24px; }
+      .features-grid { gap: 28px; }
     }
 
     /* ===== SP ===== */
     @media (max-width: 768px) {
-      .contact-cards-section { padding: 40px 20px 0; }
-      .contact-grid { grid-template-columns: 1fr; gap: 12px; }
-      .contact-card { padding: 24px 20px; }
-      .contact-page { padding: 40px 20px 56px; }
-      .contact-intro { font-size: 13px; margin-bottom: 32px; }
+      .hero {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-img {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        right: auto; top: auto;
+      }
+
+      .hero-content {
+        padding: 36px 20px;
+        max-width: 100%;
+      }
+
+      .hero-heading { font-size: 36px; }
+      .hero-sub-en { font-size: 14px; }
+
+      .hero-info {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-actions { flex-wrap: wrap; }
+
+      .features { padding: 40px 20px; }
+      .features-grid { gap: 20px; }
+      .feature-item { min-width: 72px; }
     }
+
+    @media (max-width: 480px) {
+      .hero-heading { font-size: 30px; }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 8px;
+      }
+    }
+
+    /* ===== NEWS (TOP) ===== */
+    .news-top {
+      padding: 56px 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      border-top: 1px solid var(--gray-mid);
+    }
+
+    .news-top-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .news-top-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .news-top-more {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--gray-text);
+      border-bottom: 1px solid var(--gray-mid);
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+
+    .news-top-more:hover { opacity: 0.6; }
+
+    .news-top-list { list-style: none; }
+
+    .news-top-item a {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--gray-mid);
+      transition: opacity 0.2s;
+    }
+
+    .news-top-item:first-child a { border-top: 1px solid var(--gray-mid); }
+    .news-top-item a:hover { opacity: 0.55; }
+
+    .news-top-date {
+      font-size: 12px;
+      color: var(--gray-text);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .news-top-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    @media (max-width: 768px) {
+      .news-top { padding: 40px 20px; }
+      .news-top-item a {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 16px 0;
+      }
+      .news-top-item:first-child a { border-top: 1px solid var(--gray-mid); }
+    }
+
+    /* ===== BJJ SECTION ===== */
+    .bjj-section {
+      padding: 64px 40px;
+      border-top: 1px solid var(--gray-mid);
+      background: var(--gray-light);
+    }
+
+    .bjj-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .bjj-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--gray-text);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .bjj-heading {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+    }
+
+    .bjj-body {
+      font-size: 14px;
+      line-height: 2.1;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .bjj-section { padding: 48px 20px; }
+      .bjj-heading { font-size: 20px; }
+    }
+
+    /* ===== MITZ FIT TOP ===== */
+    .mitzfit-top {
+      border-top: 1px solid var(--gray-mid);
+      padding: 48px 40px;
+    }
+
+    .mitzfit-top-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .mitzfit-top-label {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+
+    .mitzfit-top-label em {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+    }
+
+    .mitzfit-top-body {
+      font-size: 13px;
+      line-height: 2;
+      color: #444;
+    }
+
+    .mitzfit-top-logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .mitzfit-top-logo img {
+      width: 160px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .mitzfit-top { padding: 40px 20px; }
+      .mitzfit-top-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .mitzfit-top-logo { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .mitzfit-top-logo img { width: 160px; }
+    }
+
+    .mitzfit-ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--black);
+      transition: opacity 0.2s;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 2px;
+    }
+
+    .mitzfit-ig:hover { opacity: 0.6; }
   </style>
 </head>
 <body>
   <div class="page-wrapper">
 
+    <!-- HEADER -->
     <header class="site-header">
       <a href="index.html" class="site-logo">
         <img src="logo.png" alt="Pay it Forward Jiu-Jitsu ロゴ">
         <div><div class="logo-text">Pay it Forward</div><div class="logo-sub">— JIU-JITSU —</div></div>
       </a>
       <nav class="site-nav">
-        <a href="index.html">ホーム</a>
+        <a href="index.html" class="active">ホーム</a>
         <a href="concept.html">コンセプト</a>
         <a href="schedule.html">クラススケジュール</a>
         <a href="instructor.html">インストラクター</a>
         <a href="access.html">アクセス</a>
         <a href="pricing.html">料金プラン</a>
         <a href="news.html">お知らせ</a>
-        <a href="contact.html" class="active">お問い合わせ</a>
+        <a href="contact.html">お問い合わせ</a>
         <a href="contact.html" class="btn-cta">無料体験のご予約</a>
       </nav>
-      <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
     </header>
 
+    <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">ホーム</a>
       <a href="concept.html">コンセプト</a>
@@ -214,92 +487,83 @@
 
     <main>
 
-      <!-- Instagram / LINE カード -->
-      <section class="contact-cards-section">
-        <div class="contact-grid">
+      <!-- HERO -->
+      <section class="hero">
+        <img src="hero.jpg" alt="柔術の練習風景" class="hero-img">
+        <div class="hero-content">
+          <h1 class="hero-heading">柔術で、<br>心も体も<br>もっと自由に。</h1>
+          <p class="hero-sub-en">Pay it Forward Jiu-Jitsu</p>
+          <ul class="hero-features">
+            <li>信濃町駅徒歩30秒 / 国立競技場駅徒歩6分</li>
+            <li>はじめての方・女性・キッズ歓迎</li>
+            <li>50代以上歓迎</li>
+            <li>初心者歓迎</li>
+            <li>自然豊かな環境</li>
+            <li>見学・体験いつでもOK</li>
+          </ul>
 
-          <div class="contact-card">
-            <div class="contact-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <rect x="4" y="4" width="32" height="32" rx="8" stroke="#1a1a1a" stroke-width="1.4"/>
-                <circle cx="20" cy="20" r="7" stroke="#1a1a1a" stroke-width="1.4"/>
-                <circle cx="29" cy="11" r="2" fill="#1a1a1a"/>
-              </svg>
-            </div>
-            <div class="contact-type">Instagramで見る</div>
-            <div class="contact-desc">@payitforwardjujitsu</div>
-            <a href="https://www.instagram.com/payitforwardjiujitsu?igsh=d3Uzd296cXIxdXo=" target="_blank" rel="noopener" class="contact-link">
-              フォローする
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn-primary">
+              無料体験に申し込む
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
+            <div class="hero-badge">2026年<br>OPEN<br>予定</div>
           </div>
-
-          <div class="contact-card line-card">
-            <div class="contact-icon">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <path d="M20 9c-8.28 0-15 5.37-15 12 0 5.56 4.13 10.34 10.02 11.94.38.1.9.33 1.04.67.12.3.07.78.04 1.1l-.18 1.06c-.05.3-.25 1.22 1.08.67 1.33-.56 7.2-4.26 9.86-7.3C28.18 26.85 35 23.18 35 21c0-6.63-6.72-12-15-12z" stroke="white" stroke-width="1.2"/>
-                <circle cx="14" cy="21" r="1.5" fill="white"/>
-                <circle cx="20" cy="21" r="1.5" fill="white"/>
-                <circle cx="26" cy="21" r="1.5" fill="white"/>
-              </svg>
-            </div>
-            <div class="contact-type">LINEで問い合わせ</div>
-            <div class="contact-desc">気軽にご相談ください</div>
-            <a href="https://lin.ee/XwbbAeM" target="_blank" rel="noopener" class="contact-link">
-              友だち追加
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-
         </div>
       </section>
 
-      <!-- フォーム -->
-      <section class="contact-page">
-        <h2 class="section-title">無料体験のご予約・お問い合わせ</h2>
-        <p class="contact-intro">
-          見学・体験のお申し込み、その他のお問い合わせは<br>
-          下記フォームよりお気軽にご連絡ください。
-        </p>
 
-        <form id="contactForm">
-          <div class="form-group">
-            <label class="form-label">お名前<span class="required">必須</span></label>
-            <input type="text" id="name" class="form-input" placeholder="山田 太郎" required>
-          </div>
 
-          <div class="form-group">
-            <label class="form-label">お問い合わせ内容<span class="required">必須</span></label>
-            <textarea id="message" class="form-textarea" placeholder="ご質問・ご要望などをご記入ください" required></textarea>
-          </div>
 
-          <div class="form-group">
-            <label class="form-label">連絡先<span class="required">必須</span></label>
-            <input type="text" id="contact" class="form-input" placeholder="メールアドレスまたは電話番号" required>
-          </div>
+      <!-- BJJ SECTION -->
+      <section class="bjj-section">
+        <div class="bjj-inner">
+          <p class="bjj-eyebrow">ブラジリアン柔術とは</p>
+          <h2 class="bjj-heading">身体と心を整える<br>「体組（からだ）のチェス」</h2>
+          <p class="bjj-body">ブラジリアン柔術は、打撃がなく、てこの原理や人間工学に基づいた関節技・絞め技を競うスポーツです。年齢や体格に関係なく、誰でも安全に、自分のペースで奥深い技術を学ぶことができます。頭脳と身体をフルに使うそのゲーム性の高さから「体で覚えるチェス」とも称され、現代人のストレス解消やボディメイク、マインドフルネスの手段としても世界中で愛されています。</p>
+        </div>
+      </section>
 
-          <div class="privacy-box">
-            <p>お客様の個人情報は、個人情報に関して適用される法令規範を遵守いたします。<br>
-            お問い合わせ内容や貴重なご意見は、今後の業務の改善並びに参考とさせていただきます。</p>
-            <label class="privacy-agree">
-              <input type="checkbox" id="privacyCheck">
-              <span>プライバシーポリシーに同意します。</span>
-            </label>
+      <!-- MITZ FIT -->
+      <section class="mitzfit-top">
+        <div class="mitzfit-top-inner">
+          <div class="mitzfit-top-text">
+            <p class="mitzfit-top-label"><em>Pay it Forward</em> の中で <em>Mitz Fit</em> を展開</p>
+            <p class="mitzfit-top-body">柔術ジム「Pay it Forward Jiu-Jitsu」の中で、フィジカルトレーニングジム「Mitz Fit」を展開しています。柔術とトレーニングを組み合わせることで、技術面はもちろん、体づくりやパフォーマンス向上をサポートします。</p>
           </div>
+          <div class="mitzfit-top-logo">
+            <a href="https://mitzfittokyo.com/" target="_blank" rel="noopener" class="mitzfit-logo-link">
+              <img src="5.jpg" loading="lazy" alt="Mitz Fit ロゴ">
+            </a>
+            <a href="https://www.instagram.com/mitzfit_gaien?igsh=MWZiM3Vud2s0aWNnYQ==" target="_blank" rel="noopener" class="mitzfit-ig">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#1a1a1a" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#1a1a1a" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#1a1a1a"/></svg>
+              @mitzfit_gaien
+            </a>
+          </div>
+        </div>
+      </section>
 
-          <div class="form-submit">
-            <button type="button" onclick="sendMail()">メールアプリで送信する</button>
-            <p class="form-note">送信ボタンを押すとメールアプリが起動します。</p>
-          </div>
-        </form>
+      <!-- NEWS -->
+      <section class="news-top">
+        <div class="news-top-header">
+          <h2 class="news-top-title">お知らせ</h2>
+          <a href="news.html" class="news-top-more">一覧を見る →</a>
+        </div>
+        <ul class="news-top-list" id="newsTopList">
+          <li style="padding:20px 0;font-size:13px;color:var(--gray-text);">読み込み中...</li>
+        </ul>
       </section>
 
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-logo">
         <img src="logo.png" alt="ロゴ">
-        <div><div class="footer-logo-name">Pay it Forward</div><div class="footer-logo-tagline">自然豊かな新宿・信濃町の柔術ジム</div></div>
+        <div>
+          <div class="footer-logo-name">Pay it Forward</div>
+          <div class="footer-logo-tagline">自然豊かな新宿・信濃町の柔術ジム</div>
+        </div>
       </div>
       <div class="footer-copy">&copy; 2025 Pay it Forward Jiu-Jitsu All Rights Reserved.</div>
       <div class="footer-sns">
@@ -315,37 +579,60 @@
 
   <script>
     // ===== ハンバーガー =====
-    var ham = document.getElementById('hamburger');
-    var menu = document.getElementById('mobileMenu');
-    ham.addEventListener('click', function() { ham.classList.toggle('open'); menu.classList.toggle('open'); document.body.classList.toggle('menu-open'); });
-    menu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { ham.classList.remove('open'); menu.classList.remove('open'); document.body.classList.remove('menu-open'); }); });
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', function() {
+      ham.classList.toggle('open');
+      menu.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        ham.classList.remove('open');
+        menu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      });
+    });
 
-    // ===== メール送信 =====
-    function sendMail() {
-      var name    = document.getElementById('name').value.trim();
-      var message = document.getElementById('message').value.trim();
-      var contact = document.getElementById('contact').value.trim();
-      var checked = document.getElementById('privacyCheck').checked;
+    // ===== お知らせデータ =====
+    const NEWS_DATA = [
+  {
+    id: 1,
+    title: "Pay it Forward Jiu-Jitsu オープン決定",
+    date: "2026-05-07",
+    content: "この度、東京・信濃町にて「Pay it Forward Jiu-Jitsu」のオープンが正式に決定いたしました。\n\nはじめての方も、女性も、キッズも、50代以上の方も。それぞれのペースで楽しく強くなれる場所を目指します。\n\nオープン日・体験会の詳細については順次お知らせいたします。ぜひInstagramやLINEでの最新情報をお見逃しなく。"
+  },
+  {
+    id: 2,
+    title: "オープン準備スタート",
+    date: "2026-05-17",
+    content: "本日よりオープンに向けた準備を本格的にスタートしました。\n\n道場の整備、スケジュール調整、体験会の企画など、鋭意準備中です。\n\n無料体験のお申し込みは「お問い合わせ」ページよりお気軽にどうぞ。オープンまで今しばらくお待ちください。"
+  },
+  {
+    id: 3,
+    title: "ジムの近くの歩道橋からの眺め",
+    date: "2026-05-19",
+    thumbnail: "news01.jpg",
+    content: "ジムの近くの有名な歩道橋です！\n\nジムの準備の最中にお散歩。\n\n良いジムを作って皆さんをお待ちしております。"
+  }
+];
 
-      if (!name || !message || !contact) {
-        alert('すべての項目を入力してください。');
-        return;
+    // ===== TOP 最新3件表示 =====
+    (function() {
+      function fmt(s) {
+        var d = new Date(s);
+        return d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0');
       }
-      if (!checked) {
-        alert('プライバシーポリシーに同意してください。');
-        return;
-      }
-
-      var to      = 'payitforwardjiujitsu@gmail.com';
-      var subject = encodeURIComponent('ジムお問い合わせ');
-      var body    = encodeURIComponent(
-        'お名前: ' + name + '\n\n' +
-        'お問い合わせ内容:\n' + message + '\n\n' +
-        '連絡先: ' + contact
-      );
-
-      window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-    }
+      var data = NEWS_DATA.slice().sort(function(a,b){ return new Date(b.date) - new Date(a.date); });
+      var list = document.getElementById('newsTopList');
+      list.innerHTML = '';
+      data.slice(0,3).forEach(function(item) {
+        var li = document.createElement('li');
+        li.className = 'news-top-item';
+        li.innerHTML = '<a href="news-detail.html?id=' + item.id + '"><span class="news-top-date">' + fmt(item.date) + '</span><span class="news-top-name">' + item.title + '</span></a>';
+        list.appendChild(li);
+      });
+    })();
   </script>
 </body>
 </html>

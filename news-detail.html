@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   <meta name="color-scheme" content="light">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お知らせ | Pay it Forward Jiu-Jitsu</title>
+  <meta name="description" content="Pay it Forward JIU-JITSUのお知らせ詳細ページ。">
+  <meta name="keywords" content="お知らせ,柔術,信濃町">
+  <meta name="robots" content="index, follow">
+  <title>お知らせ詳細｜Pay it Forward JIU-JITSU</title>
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="お知らせ詳細｜Pay it Forward JIU-JITSU">
+  <meta property="og:description" content="Pay it Forward JIU-JITSUのお知らせ詳細ページ。">
+  <meta property="og:url" content="https://mrx-lab13.github.io/test/news-detail.html">
+  <meta property="og:image" content="https://mrx-lab13.github.io/test/logo.png">
+  <meta property="og:site_name" content="Pay it Forward JIU-JITSU">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="お知らせ詳細｜Pay it Forward JIU-JITSU">
+  <meta name="twitter:description" content="Pay it Forward JIU-JITSUのお知らせ詳細ページ。">
+  <meta name="twitter:image" content="https://mrx-lab13.github.io/test/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- 表示速度最適化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
   <link rel="stylesheet" href="common.css">
   <style>
     .detail-section {
@@ -43,6 +71,14 @@
       line-height: 2.1;
       color: #333;
       white-space: pre-wrap;
+    }
+
+    .detail-img {
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      margin-bottom: 32px;
+      display: block;
     }
 
     .detail-back {
@@ -161,6 +197,13 @@
     title: "オープン準備スタート",
     date: "2026-05-17",
     content: "本日よりオープンに向けた準備を本格的にスタートしました。\n\n道場の整備、スケジュール調整、体験会の企画など、鋭意準備中です。\n\n無料体験のお申し込みは「お問い合わせ」ページよりお気軽にどうぞ。オープンまで今しばらくお待ちください。"
+  },
+  {
+    id: 3,
+    title: "ジムの近くの歩道橋からの眺め",
+    date: "2026-05-19",
+    thumbnail: "news01.jpg",
+    content: "ジムの近くの有名な歩道橋です！\n\nジムの準備の最中にお散歩。\n\n良いジムを作って皆さんをお待ちしております。"
   }
 ];
 
@@ -183,10 +226,12 @@
     } else {
       document.title = item.title + ' | Pay it Forward Jiu-Jitsu';
       var body = item.content.replace(/\n/g, '<br>');
+      var imgHtml = item.thumbnail ? '<img src="' + item.thumbnail + '" alt="' + item.title + '" class="detail-img" loading="lazy">' : '';
       container.innerHTML =
         '<p class="detail-eyebrow">お知らせ</p>' +
         '<p class="detail-date">' + formatDate(item.date) + '</p>' +
         '<h1 class="detail-title">' + item.title + '</h1>' +
+        imgHtml +
         '<div class="detail-body">' + body + '</div>' +
         '<a href="news.html" class="detail-back">' +
         '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M6 3L2 7l4 4" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
