@@ -63,17 +63,36 @@
     /* ===== HERO ===== */
     .hero {
       position: relative;
-      min-height: 540px;
+      min-height: clamp(560px, 45vw, 820px);
       background: #f0ede8;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 画像は全面に敷き、左側をベージュのグラデーションで溶かす */
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
     }
 
-    .hero-slider {
+    .hero-veil {
       position: absolute;
-      right: 0; top: 0;
-      width: 54%;
-      height: 100%;
-      overflow: hidden;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(240,237,232,0) 72%, rgba(240,237,232,0.35) 100%),
+        linear-gradient(90deg,
+          rgba(240,237,232,0.94) 0%,
+          rgba(240,237,232,0.90) 34%,
+          rgba(240,237,232,0.55) 46%,
+          rgba(240,237,232,0.22) 56%,
+          rgba(240,237,232,0.04) 66%,
+          rgba(240,237,232,0) 74%);
     }
 
     .hero-img {
@@ -82,7 +101,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 35%;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
@@ -98,8 +117,8 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 60px 0 60px 48px;
-      max-width: 480px;
+      padding: 56px 0 56px 48px;
+      max-width: 500px;
     }
 
     .hero-heading {
@@ -237,6 +256,16 @@
     @media (max-width: 1024px) {
       .hero-content { padding: 48px 0 48px 32px; }
       .hero-heading { font-size: 44px; }
+      .hero-veil {
+        background:
+          linear-gradient(180deg, rgba(240,237,232,0) 72%, rgba(240,237,232,0.35) 100%),
+          linear-gradient(90deg,
+            rgba(240,237,232,0.95) 0%,
+            rgba(240,237,232,0.92) 42%,
+            rgba(240,237,232,0.62) 56%,
+            rgba(240,237,232,0.25) 68%,
+            rgba(240,237,232,0) 82%);
+      }
       .features { padding: 48px 24px; }
       .features-grid { gap: 28px; }
     }
@@ -247,14 +276,19 @@
         min-height: auto;
         display: flex;
         flex-direction: column;
+        align-items: stretch;
       }
 
+      /* SPは全面敷きをやめて、画像→テキストの縦並びに戻す */
       .hero-slider {
         position: relative;
+        inset: auto;
         width: 100%;
         height: 280px;
-        right: auto; top: auto;
       }
+
+      .hero-img { object-position: center center; }
+      .hero-veil { display: none; }
 
       .hero-content {
         padding: 36px 20px;
@@ -523,6 +557,7 @@
           <img src="hero4.jpg" alt="" class="hero-img hero-slide">
           <img src="hero5.jpg" alt="" class="hero-img hero-slide">
         </div>
+        <div class="hero-veil"></div>
         <div class="hero-content">
           <h1 class="hero-heading">柔術で、<br>心も体も<br>もっと自由に。</h1>
           <p class="hero-sub-en">Pay it Forward Jiu-Jitsu</p>
@@ -540,7 +575,7 @@
               無料体験に申し込む
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <div class="hero-badge">2026年<br>OPEN<br>予定</div>
+            <div class="hero-badge">2026.8.1<br>GRAND<br>OPEN</div>
           </div>
         </div>
       </section>
