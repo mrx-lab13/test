@@ -68,13 +68,31 @@
       overflow: hidden;
     }
 
-    .hero-img {
+    .hero-slider {
       position: absolute;
       right: 0; top: 0;
       width: 54%;
       height: 100%;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: center top;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero-img.is-active { opacity: 1; }
+    .hero-img.is-hidden { display: none; }
+
+    /* 動きを減らす設定のユーザーはフェードなし（1枚目固定はJS側で制御） */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-img { transition: none; }
     }
 
     .hero-content {
@@ -231,7 +249,7 @@
         flex-direction: column;
       }
 
-      .hero-img {
+      .hero-slider {
         position: relative;
         width: 100%;
         height: 280px;
@@ -496,7 +514,15 @@
 
       <!-- HERO -->
       <section class="hero">
-        <img src="hero.jpg" alt="柔術の練習風景" class="hero-img">
+        <div class="hero-slider" id="heroSlider">
+          <!-- hero1〜5.jpg が無い間は hero.jpg を静止表示（画像を置くだけで自動でスライド化） -->
+          <img src="hero.jpg" alt="柔術の練習風景" class="hero-img hero-fallback is-active">
+          <img src="hero1.jpg" alt="柔術の練習風景" class="hero-img hero-slide">
+          <img src="hero2.jpg" alt="" class="hero-img hero-slide">
+          <img src="hero3.jpg" alt="" class="hero-img hero-slide">
+          <img src="hero4.jpg" alt="" class="hero-img hero-slide">
+          <img src="hero5.jpg" alt="" class="hero-img hero-slide">
+        </div>
         <div class="hero-content">
           <h1 class="hero-heading">柔術で、<br>心も体も<br>もっと自由に。</h1>
           <p class="hero-sub-en">Pay it Forward Jiu-Jitsu</p>
@@ -647,6 +673,69 @@
         li.className = 'news-top-item';
         li.innerHTML = '<a href="news-detail.html?id=' + item.id + '"><span class="news-top-date">' + fmt(item.date) + '</span><span class="news-top-name">' + item.title + '</span></a>';
         list.appendChild(li);
+      });
+    })();
+  
+    // ===== ヒーロースライドショー =====
+    // hero1.jpg〜hero5.jpg があるものだけを自動で使う。
+    // 1枚も無い場合は hero.jpg を静止表示（＝今までと同じ見た目）。
+    (function() {
+      var INTERVAL = 3000; // 切替間隔ms（変更はここだけ）
+      var slider = document.getElementById('heroSlider');
+      if (!slider) return;
+
+      var fallback = slider.querySelector('.hero-fallback');
+      var imgs = Array.prototype.slice.call(slider.querySelectorAll('.hero-slide'));
+      if (!imgs.length) return;
+
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var settled = 0;
+      var current = -1;
+      var fadedOut = false;
+
+      function ok(img) { return !img.dataset.broken; }
+
+      function fail(img) {
+        img.dataset.broken = '1';
+        img.classList.add('is-hidden');
+      }
+
+      function show(i) {
+        if (current === i) return;
+        if (current >= 0) imgs[current].classList.remove('is-active');
+        imgs[i].classList.add('is-active');
+        current = i;
+        // 実画像が乗ったらフェード完了後に hero.jpg を退場させる
+        if (fallback && !fadedOut) {
+          fadedOut = true;
+          setTimeout(function() { fallback.classList.add('is-hidden'); }, 1100);
+        }
+      }
+
+      function settle() {
+        settled++;
+        if (settled < imgs.length) return; // 全枚数の成否が確定してから判定
+
+        var valid = imgs.filter(ok);
+        if (!valid.length) return;          // 1枚も無い → hero.jpg のまま
+        show(imgs.indexOf(valid[0]));
+        if (reduce || valid.length < 2) return; // 動き抑制設定 or 有効1枚なら固定
+
+        setInterval(function() {
+          var next = current;
+          do { next = (next + 1) % imgs.length; } while (!ok(imgs[next]) && next !== current);
+          if (next !== current) show(next);
+        }, INTERVAL);
+      }
+
+      imgs.forEach(function(img) {
+        if (img.complete) {
+          if (!img.naturalWidth) fail(img);
+          settle();
+        } else {
+          img.addEventListener('load', settle);
+          img.addEventListener('error', function() { fail(img); settle(); });
+        }
       });
     })();
   </script>
