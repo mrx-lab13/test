@@ -70,7 +70,7 @@
       align-items: center;
     }
 
-    /* PCは写真を画面いっぱいに敷き、文字の裏だけ半透明のクリームを重ねる */
+    /* PCは写真を画面いっぱい・左端まで見せる。文字の裏に敷き物は置かない */
     .hero-slider {
       position: absolute;
       inset: 0;
@@ -79,19 +79,13 @@
       overflow: hidden;
     }
 
+    /* 下端だけ次のセクションへなじませる */
     .hero-veil {
       position: absolute;
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background:
-        linear-gradient(180deg, rgba(240,237,232,0) 74%, rgba(240,237,232,0.35) 100%),
-        linear-gradient(90deg,
-          rgba(240,237,232,0.68) 0%,
-          rgba(240,237,232,0.64) 32%,
-          rgba(240,237,232,0.32) 48%,
-          rgba(240,237,232,0.10) 62%,
-          rgba(240,237,232,0) 74%);
+      background: linear-gradient(180deg, rgba(240,237,232,0) 78%, rgba(240,237,232,0.30) 100%);
     }
 
     .hero-img {
@@ -105,24 +99,21 @@
       transition: opacity 1s ease-in-out;
     }
 
-    /* PCのみ：黒文字をクリーム色の極細フチで囲って写真の上でも読めるように */
+    /* PCのみ：敷き物が無いぶん、黒文字をクリーム色(#f0ede8)の1pxフチ＋淡い光で浮かせる */
     @media (min-width: 769px) {
-      .hero-heading,
-      .hero-sub-en,
-      .hero-features li,
-      .hero-info-item {
+      .hero-heading {
         text-shadow:
           1px 0 0 #f0ede8, -1px 0 0 #f0ede8, 0 1px 0 #f0ede8, 0 -1px 0 #f0ede8,
-          1px 1px 0 #f0ede8, -1px -1px 0 #f0ede8, 1px -1px 0 #f0ede8, -1px 1px 0 #f0ede8;
+          1px 1px 0 #f0ede8, -1px -1px 0 #f0ede8, 1px -1px 0 #f0ede8, -1px 1px 0 #f0ede8,
+          0 0 8px rgba(240,237,232,0.95), 0 0 18px rgba(240,237,232,0.75);
       }
-      /* 小さい文字はフチに加えて淡いにじみを足す */
       .hero-sub-en,
       .hero-features li,
       .hero-info-item {
         text-shadow:
           1px 0 0 #f0ede8, -1px 0 0 #f0ede8, 0 1px 0 #f0ede8, 0 -1px 0 #f0ede8,
           1px 1px 0 #f0ede8, -1px -1px 0 #f0ede8, 1px -1px 0 #f0ede8, -1px 1px 0 #f0ede8,
-          0 0 4px rgba(240,237,232,0.95);
+          0 0 6px rgba(240,237,232,0.95), 0 0 14px rgba(240,237,232,0.8);
       }
     }
 
