@@ -99,7 +99,7 @@
       transition: opacity 1s ease-in-out;
     }
 
-    /* PCのみ：敷き物が無いぶん、黒文字をクリーム色(#f0ede8)の1pxフチ＋淡い光で浮かせる */
+    /* 769px以上（スマホ横向き・タブレット・PC）のみ：敷き物が無いぶん、黒文字をクリーム色(#f0ede8)の1pxフチ＋淡い光で浮かせる */
     @media (min-width: 769px) {
       .hero-heading {
         text-shadow:
@@ -263,10 +263,19 @@
       border-top: 1px solid var(--gray-mid);
     }
 
-    /* ===== TABLET ===== */
+    /* ===== TABLET / スマホ横向き（769〜1024px：PCと同じ全面表示。文字の幅だけ狭める） ===== */
     @media (max-width: 1024px) {
-      .hero-content { padding: 48px 0 48px 32px; }
-      .hero-heading { font-size: 44px; }
+      .hero {
+        min-height: clamp(420px, 52vw, 620px);
+      }
+
+      .hero-content {
+        padding: 40px 0 40px 28px;
+        max-width: 400px;
+      }
+
+      .hero-heading { font-size: 36px; }
+      .hero-features li { font-size: 12px; padding: 7px 0; }
       .features { padding: 48px 24px; }
       .features-grid { gap: 28px; }
     }
@@ -548,7 +557,8 @@
     <main>
 
       <!-- HERO -->
-      <section class="hero">
+      <!-- BUILD-ID: hero-fullbleed-v5 -->
+      <section class="hero" data-build="hero-fullbleed-v5">
         <div class="hero-slider" id="heroSlider">
           <!-- 表示順：道場全景 → 拳合わせ → スパーリング → 指導風景 → 窓辺の3人 -->
           <img src="hero5.jpg" alt="Pay it Forward JIU-JITSU の道場" class="hero-img hero-slide is-active">
