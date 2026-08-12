@@ -549,13 +549,12 @@
       <!-- HERO -->
       <section class="hero">
         <div class="hero-slider" id="heroSlider">
-          <!-- hero1〜5.jpg が無い間は hero.jpg を静止表示（画像を置くだけで自動でスライド化） -->
-          <img src="hero.jpg" alt="柔術の練習風景" class="hero-img hero-fallback is-active">
+          <!-- 表示順：道場全景 → 拳合わせ → スパーリング → 指導風景 → 窓辺の3人 -->
+          <img src="hero5.jpg" alt="Pay it Forward JIU-JITSU の道場" class="hero-img hero-slide is-active">
           <img src="hero1.jpg" alt="柔術の練習風景" class="hero-img hero-slide">
           <img src="hero2.jpg" alt="" class="hero-img hero-slide">
           <img src="hero3.jpg" alt="" class="hero-img hero-slide">
           <img src="hero4.jpg" alt="" class="hero-img hero-slide">
-          <img src="hero5.jpg" alt="" class="hero-img hero-slide">
         </div>
         <div class="hero-veil"></div>
         <div class="hero-content">
@@ -712,27 +711,25 @@
     })();
   
     // ===== ヒーロースライドショー =====
-    // hero1.jpg〜hero5.jpg があるものだけを自動で使う。
-    // 1枚も無い場合は hero.jpg を静止表示（＝今までと同じ見た目）。
+    // hero1.jpg〜hero5.jpg のうち、読み込めたものだけを順に表示する。
     (function() {
       var INTERVAL = 3000; // 切替間隔ms（変更はここだけ）
       var slider = document.getElementById('heroSlider');
       if (!slider) return;
 
-      var fallback = slider.querySelector('.hero-fallback');
       var imgs = Array.prototype.slice.call(slider.querySelectorAll('.hero-slide'));
       if (!imgs.length) return;
 
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var settled = 0;
-      var current = -1;
-      var fadedOut = false;
+      var current = 0; // 1枚目にis-activeが付いている前提
 
       function ok(img) { return !img.dataset.broken; }
 
       function fail(img) {
         img.dataset.broken = '1';
         img.classList.add('is-hidden');
+        img.classList.remove('is-active');
       }
 
       function show(i) {
@@ -740,11 +737,6 @@
         if (current >= 0) imgs[current].classList.remove('is-active');
         imgs[i].classList.add('is-active');
         current = i;
-        // 実画像が乗ったらフェード完了後に hero.jpg を退場させる
-        if (fallback && !fadedOut) {
-          fadedOut = true;
-          setTimeout(function() { fallback.classList.add('is-hidden'); }, 1100);
-        }
       }
 
       function settle() {
@@ -752,8 +744,11 @@
         if (settled < imgs.length) return; // 全枚数の成否が確定してから判定
 
         var valid = imgs.filter(ok);
-        if (!valid.length) return;          // 1枚も無い → hero.jpg のまま
-        show(imgs.indexOf(valid[0]));
+        if (!valid.length) return;
+        if (!ok(imgs[current])) {          // 1枚目が無い場合は次の有効画像へ
+          current = -1;
+          show(imgs.indexOf(valid[0]));
+        }
         if (reduce || valid.length < 2) return; // 動き抑制設定 or 有効1枚なら固定
 
         setInterval(function() {
