@@ -63,14 +63,14 @@
     /* ===== HERO ===== */
     .hero {
       position: relative;
-      min-height: clamp(560px, 45vw, 820px);
+      min-height: clamp(560px, 42vw, 760px);
       background: #f0ede8;
       overflow: hidden;
       display: flex;
       align-items: center;
     }
 
-    /* 画像は全面に敷き、左側をベージュのグラデーションで溶かす */
+    /* PCは写真を画面いっぱいに敷き、文字の裏だけ半透明のクリームを重ねる */
     .hero-slider {
       position: absolute;
       inset: 0;
@@ -85,13 +85,12 @@
       z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(240,237,232,0) 72%, rgba(240,237,232,0.35) 100%),
+        linear-gradient(180deg, rgba(240,237,232,0) 74%, rgba(240,237,232,0.35) 100%),
         linear-gradient(90deg,
-          rgba(240,237,232,0.94) 0%,
-          rgba(240,237,232,0.90) 34%,
-          rgba(240,237,232,0.55) 46%,
-          rgba(240,237,232,0.22) 56%,
-          rgba(240,237,232,0.04) 66%,
+          rgba(240,237,232,0.68) 0%,
+          rgba(240,237,232,0.64) 32%,
+          rgba(240,237,232,0.32) 48%,
+          rgba(240,237,232,0.10) 62%,
           rgba(240,237,232,0) 74%);
     }
 
@@ -104,6 +103,27 @@
       object-position: center 35%;
       opacity: 0;
       transition: opacity 1s ease-in-out;
+    }
+
+    /* PCのみ：黒文字をクリーム色の極細フチで囲って写真の上でも読めるように */
+    @media (min-width: 769px) {
+      .hero-heading,
+      .hero-sub-en,
+      .hero-features li,
+      .hero-info-item {
+        text-shadow:
+          1px 0 0 #f0ede8, -1px 0 0 #f0ede8, 0 1px 0 #f0ede8, 0 -1px 0 #f0ede8,
+          1px 1px 0 #f0ede8, -1px -1px 0 #f0ede8, 1px -1px 0 #f0ede8, -1px 1px 0 #f0ede8;
+      }
+      /* 小さい文字はフチに加えて淡いにじみを足す */
+      .hero-sub-en,
+      .hero-features li,
+      .hero-info-item {
+        text-shadow:
+          1px 0 0 #f0ede8, -1px 0 0 #f0ede8, 0 1px 0 #f0ede8, 0 -1px 0 #f0ede8,
+          1px 1px 0 #f0ede8, -1px -1px 0 #f0ede8, 1px -1px 0 #f0ede8, -1px 1px 0 #f0ede8,
+          0 0 4px rgba(240,237,232,0.95);
+      }
     }
 
     .hero-img.is-active { opacity: 1; }
@@ -256,16 +276,6 @@
     @media (max-width: 1024px) {
       .hero-content { padding: 48px 0 48px 32px; }
       .hero-heading { font-size: 44px; }
-      .hero-veil {
-        background:
-          linear-gradient(180deg, rgba(240,237,232,0) 72%, rgba(240,237,232,0.35) 100%),
-          linear-gradient(90deg,
-            rgba(240,237,232,0.95) 0%,
-            rgba(240,237,232,0.92) 42%,
-            rgba(240,237,232,0.62) 56%,
-            rgba(240,237,232,0.25) 68%,
-            rgba(240,237,232,0) 82%);
-      }
       .features { padding: 48px 24px; }
       .features-grid { gap: 28px; }
     }
