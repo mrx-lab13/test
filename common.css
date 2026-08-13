@@ -26,6 +26,7 @@ body {
   color: #1a1a1a;
   background-color: #ffffff;
   line-height: 1.7;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -250,6 +251,14 @@ body.menu-open { overflow: hidden; }
    ============================================================ */
 
 /* ---------- Tablet ---------- */
+/* 1200px以下：ヘッダーが横にはみ出して横スクロールが出るのを防ぐ */
+@media (max-width: 1200px) {
+  .site-header { padding: 0 24px; }
+  .site-nav { gap: 14px; }
+  .site-nav a { font-size: 12px; }
+  .btn-cta { padding: 9px 12px; font-size: 11px; }
+}
+
 @media (max-width: 1024px) {
   .site-header { padding: 0 24px; }
   .site-nav { gap: 14px; }

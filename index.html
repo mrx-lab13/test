@@ -79,13 +79,21 @@
       overflow: hidden;
     }
 
-    /* 下端だけ次のセクションへなじませる */
+    /* 下端のなじませ＋文字の範囲に白のもや（左が濃く、右に向かって消える） */
     .hero-veil {
       position: absolute;
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(240,237,232,0) 78%, rgba(240,237,232,0.30) 100%);
+      background:
+        linear-gradient(180deg, rgba(240,237,232,0) 78%, rgba(240,237,232,0.30) 100%),
+        linear-gradient(90deg,
+          rgba(255,255,255,0.72) 0%,
+          rgba(255,255,255,0.66) 30%,
+          rgba(255,255,255,0.44) 46%,
+          rgba(255,255,255,0.20) 60%,
+          rgba(255,255,255,0.05) 68%,
+          rgba(255,255,255,0) 76%);
     }
 
     .hero-img {
@@ -97,6 +105,37 @@
       object-position: center 35%;
       opacity: 0;
       transition: opacity 1s ease-in-out;
+    }
+
+    /* ▼▼ 写真ごとの表示位置（調整はここだけ触ればOK） ▼▼
+       PC・タブレット：上下が切れるので「縦位置」。数字が小さいほど写真の上側が見える
+       スマホ縦：左右が切れるので「横位置」。数字が小さいほど写真の左側が見える */
+    @media (min-width: 769px) {
+      .hero-img[src="hero5.jpg"] { object-position: center 55%; } /* 道場全景 */
+      .hero-img[src="hero1.jpg"] { object-position: center 35%; } /* 拳合わせ */
+      .hero-img[src="hero2.jpg"] { object-position: center 40%; } /* スパーリング */
+      .hero-img[src="hero3.jpg"] { object-position: center 45%; } /* 指導風景 */
+      .hero-img[src="hero4.jpg"] { object-position: center 45%; } /* 窓辺の3人 */
+    }
+
+    @media (max-width: 768px) {
+      .hero-img[src="hero5.jpg"] { object-position: 60% center; }
+      .hero-img[src="hero1.jpg"] { object-position: 50% center; }
+      .hero-img[src="hero2.jpg"] { object-position: 55% center; }
+      .hero-img[src="hero3.jpg"] { object-position: 55% center; }
+      .hero-img[src="hero4.jpg"] { object-position: 50% center; }
+    }
+    /* ▲▲ 写真ごとの表示位置ここまで ▲▲ */
+
+    /* PC(1025px以上)のみ：小さい文字を読みやすいサイズに上げる */
+    @media (min-width: 1025px) {
+      .hero .hero-content { max-width: 620px; }
+      .hero .hero-features li {
+        font-size: 15px;
+        color: #333;
+        padding: 11px 0;
+      }
+      .hero .hero-sub-en { font-size: 19px; }
     }
 
     /* 769px以上（スマホ横向き・タブレット・PC）のみ：敷き物が無いぶん、黒文字をクリーム色(#f0ede8)の1pxフチ＋淡い光で浮かせる */
@@ -557,8 +596,8 @@
     <main>
 
       <!-- HERO -->
-      <!-- BUILD-ID: hero-fullbleed-v5 -->
-      <section class="hero" data-build="hero-fullbleed-v5">
+      <!-- BUILD-ID: hero-fullbleed-v9 -->
+      <section class="hero" data-build="hero-fullbleed-v9">
         <div class="hero-slider" id="heroSlider">
           <!-- 表示順：道場全景 → 拳合わせ → スパーリング → 指導風景 → 窓辺の3人 -->
           <img src="hero5.jpg" alt="Pay it Forward JIU-JITSU の道場" class="hero-img hero-slide is-active">
