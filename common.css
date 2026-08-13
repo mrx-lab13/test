@@ -260,9 +260,10 @@ body.menu-open { overflow: hidden; }
 }
 
 @media (max-width: 1024px) {
-  .site-header { padding: 0 24px; }
-  .site-nav { gap: 14px; }
-  .site-nav a { font-size: 12px; }
+  .site-header { padding: 0 16px; }
+  .site-nav { gap: 10px; }
+  .site-nav a { font-size: 11px; }
+  .site-header .btn-cta { display: none; }
   .site-footer { padding: 24px 24px; }
   .section-title { font-size: 24px; }
 }
