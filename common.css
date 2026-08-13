@@ -30,11 +30,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ダークモード完全無効化 */
+/* ダークモード完全無効化
+   ※ここに `* { background-color: inherit }` を書かないこと。
+     全要素が親の背景色を継承してしまい、写真の上に乗せた文字ブロックが
+     不透明なベタ塗りの箱になってヒーローが崩れる（iPhoneのダークモードで発生） */
 @media (prefers-color-scheme: dark) {
   html { color-scheme: light; }
   body { background-color: #ffffff !important; color: #1a1a1a !important; }
-  * { color: inherit; background-color: inherit; }
 }
 
 img { max-width: 100%; height: auto; display: block; }
