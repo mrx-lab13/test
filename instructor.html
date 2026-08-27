@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
   <meta name="color-scheme" content="light">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="代表インストラクター・中井光義。IBJJFパンパシフィック優勝、ムンジアル出場。今成正和師より黒帯認可。NSCA-CPT資格保持。">
-  <meta name="keywords" content="中井光義,インストラクター,黒帯,IBJJF,柔術,今成正和,RIZIN,信濃町">
+  <meta name="description" content="Pay it Forward JIU-JITSUのインストラクター紹介。代表・中井光義ほか、経験豊富なインストラクター陣が指導します。">
+  <meta name="keywords" content="インストラクター,中井光義,黒帯,柔術,信濃町">
   <meta name="robots" content="index, follow">
-  <title>インストラクター 中井光義｜Pay it Forward JIU-JITSU</title>
+  <title>インストラクター｜Pay it Forward JIU-JITSU</title>
 
   <!-- OGP -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="インストラクター 中井光義｜Pay it Forward JIU-JITSU">
-  <meta property="og:description" content="代表インストラクター・中井光義。IBJJFパンパシフィック優勝、ムンジアル出場。今成正和師より黒帯認可。NSCA-CPT資格保持。">
-  <meta property="og:url" content="https://mrx-lab13.github.io/test/instructor.html">
-  <meta property="og:image" content="https://mrx-lab13.github.io/test/logo.png">
+  <meta property="og:title" content="インストラクター｜Pay it Forward JIU-JITSU">
+  <meta property="og:description" content="Pay it Forward JIU-JITSUのインストラクター紹介。代表・中井光義ほか、経験豊富なインストラクター陣が指導します。">
+  <meta property="og:url" content="https://payitforwardjiujitsu.com/instructor.html">
+  <meta property="og:image" content="https://payitforwardjiujitsu.com/logo.png">
   <meta property="og:site_name" content="Pay it Forward JIU-JITSU">
   <meta property="og:locale" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="インストラクター 中井光義｜Pay it Forward JIU-JITSU">
-  <meta name="twitter:description" content="代表インストラクター・中井光義。IBJJFパンパシフィック優勝、ムンジアル出場。今成正和師より黒帯認可。NSCA-CPT資格保持。">
-  <meta name="twitter:image" content="https://mrx-lab13.github.io/test/logo.png">
+  <meta name="twitter:title" content="インストラクター｜Pay it Forward JIU-JITSU">
+  <meta name="twitter:description" content="Pay it Forward JIU-JITSUのインストラクター紹介。代表・中井光義ほか、経験豊富なインストラクター陣が指導します。">
+  <meta name="twitter:image" content="https://payitforwardjiujitsu.com/logo.png">
+
+  <link rel="canonical" href="https://payitforwardjiujitsu.com/instructor.html">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
@@ -35,213 +37,97 @@
 
   <link rel="stylesheet" href="common.css">
   <style>
-    .instructor-section {
+    .instructor-hub-section {
       padding: 72px 40px;
-      max-width: 960px;
+      max-width: 1080px;
       margin: 0 auto;
     }
 
-    /* プロフィール: 写真左・テキスト右 */
-    .instructor-profile {
+    .instructor-hub-grid {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 48px;
-      align-items: start;
-      margin-bottom: 56px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
     }
 
-    .instructor-photo {
+    .instructor-card {
+      border: 1px solid var(--gray-mid);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .instructor-card-link {
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .instructor-card-link:hover { opacity: 0.7; }
+
+    .instructor-card-photo {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
     }
 
-    .instructor-role {
+    .instructor-card-body {
+      padding: 24px 20px 8px;
+    }
+
+    .instructor-card-name {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .instructor-card-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 13px;
+      color: #444;
+      line-height: 1.9;
+    }
+
+    .instructor-card-row .label {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--gray-text);
+    }
+
+    .instructor-card-insta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 12px 20px 24px;
       font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.12em;
-      color: var(--gray-text);
-      margin-bottom: 8px;
+      color: var(--black);
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 2px;
+      align-self: flex-start;
+      transition: opacity 0.2s;
     }
 
-    .instructor-name-ja {
-      font-family: var(--font-serif);
-      font-size: 34px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      margin-bottom: 4px;
-    }
-
-    .instructor-name-en {
-      font-size: 13px;
-      color: var(--gray-text);
-      letter-spacing: 0.08em;
-      margin-bottom: 28px;
-    }
-
-    .instructor-credentials {
-      margin-bottom: 28px;
-      border-top: none;
-      padding-top: 8px;
-    }
-
-    .credential-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 13px;
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-
-    .cred-square {
-      width: 5px; height: 5px;
-      background: var(--black);
-      flex-shrink: 0;
-      margin-top: 7px;
-    }
-
-    .instructor-bio {
-      font-size: 13px;
-      line-height: 2;
-      color: #444;
-      border-top: 1px solid var(--gray-mid);
-      padding-top: 20px;
-    }
-
-    /* 指導への思い: テキスト左・写真右 */
-    .philosophy {
-      background: var(--gray-light);
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .philosophy h3 {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .philosophy p {
-      font-size: 13px;
-      line-height: 2.1;
-      color: #444;
-    }
-
-    .philosophy-photo {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
+    .instructor-card-insta:hover { opacity: 0.6; }
 
     /* ===== TABLET ===== */
     @media (max-width: 1024px) {
-      .instructor-section { padding: 56px 24px; }
-      .instructor-profile { grid-template-columns: 240px 1fr; gap: 32px; }
-      .instructor-name-ja { font-size: 28px; }
-      .philosophy { padding: 36px 32px; grid-template-columns: 1fr 220px; }
+      .instructor-hub-section { padding: 56px 24px; }
+      .instructor-hub-grid { gap: 20px; }
     }
 
     /* ===== SP ===== */
     @media (max-width: 768px) {
-      .instructor-section { padding: 40px 20px; }
-
-      .instructor-profile {
+      .instructor-hub-section { padding: 40px 20px; }
+      .instructor-hub-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
-        margin-bottom: 36px;
-      }
-
-      .instructor-photo {
-        max-width: 280px;
-        aspect-ratio: 3/4;
+        gap: 20px;
+        max-width: 360px;
         margin: 0 auto;
       }
-
-      .instructor-name-ja { font-size: 26px; }
-
-      .philosophy {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        padding: 28px 20px;
-      }
-
-      .philosophy-photo {
-        order: -1;
-        max-width: 100%;
-        aspect-ratio: 16/9;
-      }
-
-      .philosophy h3 { font-size: 18px; }
-    }
-
-    .instructor-career {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid var(--gray-mid);
-    }
-
-    .instructor-career p {
-      font-size: 13px;
-      line-height: 1.9;
-      color: #444;
-      margin-bottom: 12px;
-    }
-
-    .instructor-message {
-      margin-top: 20px;
-      padding: 20px;
-      background: var(--gray-light);
-    }
-
-    .message-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      color: var(--gray-text);
-      margin-bottom: 10px;
-    }
-
-    .instructor-message p:last-child {
-      font-size: 13px;
-      line-height: 2;
-      color: #444;
-    }
-
-    .instructor-profile-data {
-      margin-bottom: 8px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--gray-mid);
-    }
-
-    .profile-row {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 12px;
-      font-size: 13px;
-      line-height: 1.8;
-      padding: 1px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .profile-label {
-      font-weight: 700;
-      color: var(--gray-text);
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      padding-top: 1px;
-    }
-
-    .profile-note {
-      font-size: 11px;
-      color: var(--gray-text);
-      line-height: 1.7;
-      display: block;
-      margin-top: 2px;
     }
   </style>
 </head>
@@ -280,53 +166,63 @@
     </div>
 
     <main>
-      <section class="instructor-section">
-        <h2 class="section-title">インストラクター</h2>
+      <section class="instructor-hub-section">
+        <h1 class="section-title">インストラクター</h1>
 
-        <div class="instructor-profile">
-          <!-- 6.jpg: インストラクター プロフィール縦写真 -->
-          <img src="6.jpg" loading="lazy" alt="中井光義 インストラクター" class="instructor-photo">
+        <div class="instructor-hub-grid">
 
-          <div>
-            <p class="instructor-role">代表インストラクター</p>
-            <h1 class="instructor-name-ja">中井　光義</h1>
-            <p class="instructor-name-en">Mitsuyoshi Nakai</p>
-
-            <!-- プロフィール -->
-            <div class="instructor-profile-data">
-              <div class="profile-row"><span class="profile-label">生年月日</span><span>1989年1月2日</span></div>
-              <div class="profile-row"><span class="profile-label">血液型</span><span>B型</span></div>
-              <div class="profile-row"><span class="profile-label">出身地</span><span>東京都新宿区（四谷第六小学校・四谷中学校出身）</span></div>
-              <div class="profile-row"><span class="profile-label">帯色</span><span>黒帯<br><span class="profile-note">※"足関十段"の異名を持つレジェンド、今成正和師より黒帯を認可</span></span></div>
-            </div>
-
-            <!-- 資格・役職 -->
-            <div class="instructor-credentials">
-              <div class="credential-item">
-                <span class="cred-square"></span>
-                Pay it Forward Jiu-Jitsu 主宰
+          <!-- 中井光義 -->
+          <div class="instructor-card">
+            <a href="instructor-1.html" class="instructor-card-link">
+              <img src="6.jpg" loading="lazy" alt="中井光義" class="instructor-card-photo">
+              <div class="instructor-card-body">
+                <p class="instructor-card-name">中井　光義</p>
+                <p class="instructor-card-row"><span class="label">帯色</span>黒帯</p>
+                <p class="instructor-card-row"><span class="label">担当クラス</span>全クラス</p>
               </div>
-              <div class="credential-item">
-                <span class="cred-square"></span>
-                担当クラス：全クラス
-              </div>
-            </div>
-
-            <div class="instructor-career">
-              <p>IBJJF世界柔術選手権（ムンジアル）の準々決勝進出、パンパシフィック・ノーギ選手権優勝。</p>
-              <p>国内外のトップ選手たちと戦い、数々のプロ格闘家の練習パートナーやセコンドとしても活動。</p>
-              <p>まったくの未経験の方や、趣味・運動不足解消として楽しみたい会員様への優しく丁寧なレッスンから、選手への本格的な指導まで、一人ひとりの目的に合わせた指導経験を持つ。</p>
-            </div>
-
-            <div class="instructor-message">
-              <p class="message-label">MESSAGE</p>
-              <p>「生まれ育った大好きな街で、柔術の素晴らしさを伝えていけることを心から嬉しく思っています。<br><br>インストラクターとして一番嬉しいのは、まったくの未経験だった方が、少しずつ『できた！』を積み重ねて、どんどん格闘技を好きになってゆく姿を見ることです。<br><br>格闘技というと『敷居が高い』と思われがちですが、運動経験がなくても、年齢に関係なく安全に楽しめるのが柔術の本当の魅力なんですよね。<br><br>当道場の理念を見て、『ちょっと柔術をやってみたいかも』『昔やってたけど、もう一回挑戦してみようかな？』と思ってくださった方、ぜひ一度お気軽に遊びにいらしてください！<br><br>若者も、マスター世代も、みんなで一緒にマットの上で気持ちよく汗を流して、生涯スポーツを体現していきましょう！」</p>
-            </div>
+            </a>
+            <!-- TODO: 中井さんの個人Instagramリンクが決まったらhref="#"を差し替え -->
+            <a href="#" target="_blank" rel="noopener" class="instructor-card-insta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#1a1a1a" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#1a1a1a" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.1" fill="#1a1a1a"/></svg>
+              Instagram
+            </a>
           </div>
+
+          <!-- インストラクターA -->
+          <div class="instructor-card">
+            <a href="instructor-2.html" class="instructor-card-link">
+              <img src="instructor2.jpg" loading="lazy" alt="インストラクターA" class="instructor-card-photo">
+              <div class="instructor-card-body">
+                <p class="instructor-card-name">インストラクター　A</p>
+                <p class="instructor-card-row"><span class="label">帯色</span>近日公開</p>
+                <p class="instructor-card-row"><span class="label">担当クラス</span>近日公開</p>
+              </div>
+            </a>
+            <!-- TODO: Aさんの個人Instagramリンクが決まったらhref="#"を差し替え -->
+            <a href="#" target="_blank" rel="noopener" class="instructor-card-insta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#1a1a1a" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#1a1a1a" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.1" fill="#1a1a1a"/></svg>
+              Instagram
+            </a>
+          </div>
+
+          <!-- インストラクターB -->
+          <div class="instructor-card">
+            <a href="instructor-3.html" class="instructor-card-link">
+              <img src="instructor3.jpg" loading="lazy" alt="インストラクターB" class="instructor-card-photo">
+              <div class="instructor-card-body">
+                <p class="instructor-card-name">インストラクター　B</p>
+                <p class="instructor-card-row"><span class="label">帯色</span>近日公開</p>
+                <p class="instructor-card-row"><span class="label">担当クラス</span>近日公開</p>
+              </div>
+            </a>
+            <!-- TODO: Bさんの個人Instagramリンクが決まったらhref="#"を差し替え -->
+            <a href="#" target="_blank" rel="noopener" class="instructor-card-insta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#1a1a1a" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#1a1a1a" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.1" fill="#1a1a1a"/></svg>
+              Instagram
+            </a>
+          </div>
+
         </div>
-
-
-
       </section>
     </main>
 
@@ -335,7 +231,7 @@
         <img src="logo.png" alt="ロゴ">
         <div><div class="footer-logo-name">Pay it Forward</div><div class="footer-logo-tagline">自然豊かな新宿・信濃町の柔術ジム</div></div>
       </div>
-      <div class="footer-copy">&copy; 2025 Pay it Forward Jiu-Jitsu All Rights Reserved.</div>
+      <div class="footer-copy">&copy; 2026 Pay it Forward Jiu-Jitsu All Rights Reserved.</div>
       <div class="footer-sns">
         <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>Instagram</a>
         <span class="footer-sns-handle">@payitforwardjujitsu</span>
